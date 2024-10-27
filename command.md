@@ -82,4 +82,19 @@ Run minikube service react-proj -n nodejs
  Deployment is 2 pod running
  In service.yaml file change target port to 3500
 
+ ##################################################
+
+ # To install argo cd on kubernetes cluster
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+# To get the argocd GUI
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+# The command to get password
+#Now the username is admin but get the password by running the #below command
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
 
