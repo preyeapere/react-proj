@@ -97,4 +97,8 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
+# Imperative command
+
+kubectl run web1 --image=nginx --dry-run=client -o yaml > pod.yaml
+
 
