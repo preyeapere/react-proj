@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-proj-deployment
+spec:
+  selector:
+    matchLabels:
+      app: react-proj
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: react-proj
+    spec:
+      containers:
+      - name: react-proj
+        image: preyeapere/react_image2.0
+        ports:
+        - containerPort: 80
